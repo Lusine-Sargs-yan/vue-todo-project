@@ -1,10 +1,10 @@
 <template>
-  <base-dialog v-if="inputIsInvalid" title="Invalid Input">
+  <base-dialog v-if="inputIsInvalid" title="Invalid Input" @close="confirmError">
     <template #default>
-      <p>Please, check all inputs </p>
+      <p>Please, check all inputs and make sure you enter at least a few characters. </p>
     </template>
     <template #actions>
-      <base-button>Ok</base-button>
+      <base-button @click="confirmError">Ok</base-button>
     </template>
   </base-dialog>
   <base-card>
@@ -52,6 +52,9 @@ export default {
       }
       this.addResource(enteredTitle, enteredDescription, enteredLink );
     },
+    confirmError() {
+      this.inputIsInvalid = false;
+    }
   },
 
 }
