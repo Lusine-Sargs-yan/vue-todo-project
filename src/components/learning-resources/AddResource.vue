@@ -22,7 +22,7 @@
         <input type="url" id="link" name="link" ref="linkInput"/>
       </div>
       <div>
-        <base-button type="submit"> Add Resource </base-button>
+        <base-button type="submit"> Submit </base-button>
       </div>
     </form>
   </base-card>
@@ -42,15 +42,20 @@ export default {
   },
   methods: {
     submitData(){
-      const enteredTitle = this.$refs.titleInput.value;
-      const enteredDescription = this.$refs.descriptionInput.value;
-      const enteredLink = this.$refs.linkInput.value;
+      let enteredTitle = this.$refs.titleInput.value;
+      let enteredDescription = this.$refs.descriptionInput.value;
+      let enteredLink = this.$refs.linkInput.value;
 
       if(enteredTitle.trim() === '' || enteredDescription === '' || enteredLink.trim() === '') {
+        console.log('here')
         this.inputIsInvalid = true;
         return;
       }
       this.addResource(enteredTitle, enteredDescription, enteredLink );
+
+      this.$refs.titleInput.value = '';
+      this.$refs.linkInput.value = '';
+      this.$refs.descriptionInput.value = '';
     },
     confirmError() {
       this.inputIsInvalid = false;

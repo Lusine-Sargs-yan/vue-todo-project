@@ -40,10 +40,10 @@ p {
 }
 a {
   text-decoration: none;
-  color: #ce5c00;
+  color: #a13368;
 }
 a:hover,
 a:active {
-  color: #c89300;
+  color: #6e2b4c;
 }
 </style>
